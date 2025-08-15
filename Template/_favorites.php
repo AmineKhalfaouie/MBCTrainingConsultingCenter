@@ -23,12 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="row">
             <div class="col-sm-9">
                 <?php
-                    if($offer->getdata('favorites') == null) {
+                    if($offer->getFavoriteByUserIdAndItemId($_SESSION['user_id']) == null) {
                         echo '<i class="fas fa-box-open" style="font-size:200px;text-align: center; justify-content: center;text-center: center;margin-left: 15%;"></i>';
                     } else {
-                        foreach ($offer->getData('favorites') as $item) :
-                            $favorites = $offer->getOfferById($item['item_id'], $_SESSION['user_id']);
-                            $subTotal[] = array_map(function ($item){
+                        foreach ($offer->getFavoriteByUserIdAndItemId($_SESSION['user_id']) as $item) :
                             ?>
                             <!-- favorite item -->
                             <div class="favorite row border-top py-3 mt-3">
@@ -65,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <!-- !favorite item -->
                         <?php
-                                }, $favorites); // closing array_map function
                         endforeach;
                     }
                 ?>
@@ -75,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="sub-total border text-center mt-2">
                     <h6 class="font-size-12 font-rale text-success py-3"><i class="fas fa-check"></i>Click on proced to apply to sent your.</h6>
                     <div class="border-top py-4">
-                        <h5 class="font-baloo font-size-20">Subtotal (<?php echo count($offer->getData('favorites')); ?> item)&nbsp;</h5>
+                        <h5 class="font-baloo font-size-20">Subtotal (<?php echo count($offer->getFavoriteByUserIdAndItemId($_SESSION['user_id'])); ?> item)&nbsp;</h5>
                         <button type="submit" class="btn btn-warning mt-3">Proceed to Apply</button>
                     </div>
                 </div>

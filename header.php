@@ -138,8 +138,8 @@ https://templatemo.com/tm-590-topic-listing
                             <a href="favorites.php" class="navbar-icon fas fa-heart"></a>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size: 12px;background-color: #13547a;">
                                 <?php
-                                    if(count($offer->getData('favorites')) > 0) {
-                                        echo '+' . count($offer->getData('favorites'));
+                                    if(count($offer->getFavoriteByUserIdAndItemId($_SESSION['user_id'])) > 0) {
+                                        echo '+' . count($offer->getFavoriteByUserIdAndItemId($_SESSION['user_id']));
                                     }
                                     else {
                                         echo 0;

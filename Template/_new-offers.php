@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
 <!-- new offers section -->
 <section id="new-offers" class="mt-5">
     <div class="container">
@@ -50,3 +51,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </section>
 <!-- new offers section -->
+<?php endif; ?>

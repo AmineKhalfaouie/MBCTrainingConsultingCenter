@@ -17,6 +17,7 @@
                     </div>
                 </form>
 
+                <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
                 <!-- Search Overlay -->
                 <div id="searchOverlay" class="search-overlay">
                     <div class="search-overlay-content">
@@ -64,6 +65,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- !Search Overlay -->
+                <?php endif; ?>
             </div>
         </div>
     </div>

@@ -12,6 +12,7 @@
     }
     $in_favorites = $favorite->getFavoritesById($offer->getData('favorites')) ?? [];
 ?>
+<?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
 <!-- special offers section -->
 <section id="special-offers">
     <div class="container">
@@ -58,3 +59,4 @@
     </div>
 </section>
 <!-- special offers section -->
+<?php endif; ?>

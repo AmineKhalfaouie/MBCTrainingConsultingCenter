@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
 <div id="top-offers">
     <div class="container py-5">
         <h4 class="font-size-20 font-rubik">Top Offers</h4>
@@ -48,4 +49,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <!-- owl carousel -->
     </div>
 </div>
+<?php endif; ?>
 <!-- top offers section -->
